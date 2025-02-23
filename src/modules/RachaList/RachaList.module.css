@@ -1,0 +1,11 @@
+.RachaListContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    > section:first-child {
+        flex-grow: 1;
+    }
+
+    .RachaListForm {}
+}
