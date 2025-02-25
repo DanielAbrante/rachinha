@@ -13,6 +13,10 @@ export function RachaList() {
         setPlayersList(updatedPlayersList);
     }
 
+    const deletePlayer = (index: number) => {
+        setPlayersList(playersList.filter((_, i) => index !== i))
+    }
+
     const addNewPlayer = () => {
         if (!newPlayerInput || newPlayerInput.trim() === '') return;
 
@@ -31,6 +35,7 @@ export function RachaList() {
                         playersList.map((player, index) => (
                             <li>
                                 <input type="text" value={player} key={index} onChange={(e) => renamePlayer(index, e.target.value)} />
+                                <button onClick={() => deletePlayer(index)}>X</button>
                             </li>
                         ))
                     }
@@ -41,6 +46,7 @@ export function RachaList() {
                 <input type="text" placeholder="Jogador(a)" value={newPlayerInput} onChange={(e) => setNewPlayerInput(e.target.value)} autoFocus />
                 <button type="button" onClick={addNewPlayer}>Adicionar</button>
             </section>
+
         </article>
     );
 }
